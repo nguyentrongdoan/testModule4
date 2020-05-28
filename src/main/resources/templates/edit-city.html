@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Edit city</h1>
+<!--<p>-->
+<!--    <a href="/cities">City list</a>-->
+<!--</p>-->
+<th:block th:if="${message}">
+    <p th:text="${message}"/>
+</th:block>
+<form th:action="@{/edit-city}" th:object="${city}" method="post">
+    <label>
+        <input th:type="hidden" name="id" th:field="*{id}">
+    </label>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><label>
+                <input type="text" th:field="*{name}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>National:</td>
+            <td><label>
+                <input type="text" th:field="*{national}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>Area:</td>
+            <td><label>
+                <input type="text" th:field="*{area}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>Population:</td>
+            <td><label>
+                <input type="text" th:field="*{population}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>GDP:</td>
+            <td><label>
+                <input type="text" th:field="*{gdp}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><label>
+<!--                <input type="text" th:field="*{description}">-->
+                <textarea name="description" id="description" cols="30" rows="10" th:field="*{description}"></textarea>
+            </label></td>
+        </tr>
+        <tr>
+            <td><button>Update</button></td>
+            <td><button><a href="/cities">Exit</a></button></td>
+<!--            <td><input type="submit" value="Update"></td>-->
+        </tr>
+    </table>
+</form>
+</body>
+</html>
